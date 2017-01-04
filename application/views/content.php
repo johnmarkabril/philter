@@ -21,7 +21,7 @@
 				case 'Editorial':
 					echo $content;
 					break;
-				case 'Feature':
+				case 'Staff':
 					echo $content;
 					break;
 				case 'News':

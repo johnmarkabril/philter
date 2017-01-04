@@ -23,10 +23,7 @@
 				            <a href="<?php echo base_url(); ?>editorial" class="hvr-underline-reveal">EDITORIAL</a>
 				        </li>
 				        <li class="text-center">
-				            <a href="<?php echo base_url(); ?>feature" class="hvr-underline-reveal">FEATURE</a>
-				        </li>
-				        <li class="text-center">
-				            <a href="<?php echo base_url(); ?>news" class="hvr-underline-reveal">NEWS</a>
+				            <a href="<?php echo base_url(); ?>staff" class="hvr-underline-reveal">STAFF</a>
 				        </li>
 				    </ul>
 				</div>
