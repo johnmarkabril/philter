@@ -18,10 +18,19 @@ class Staff_model extends CI_Model
 	function get_all_staff()
 	{
 		$row = $this->db->where($this->deletion, "0")
-						->order_by($this->lastname, "ASC")
 						->get($this->table);
 
 				return $row->result();
 	}
 
+	function insert_staff($params)
+	{
+        $this->db->insert($this->table, $params);
+	}
+
+	function update_staff($params, $no)
+	{
+        $this->db->where($this->dbno, $no)
+                 ->update($this->table, $params);
+	}
 }

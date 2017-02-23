@@ -11,13 +11,13 @@
 			<div class="padding-top">
 				<div class="ibox-content no-border" style="background-color: rgba(255,255,255,0.8);">
 					<div class="title">
-						<a href="<?php echo base_url(); ?>editorial/post/<?php echo $gae->HASHEDITORIAL; ?>"><?php echo $gae->TITLE; ?></a>
+						<a href="<?php echo base_url(); ?>editorial/post/<?php echo $gae->NO; ?>"><?php echo $gae->TITLE; ?></a>
 					</div>
 					<div class="content-editorial">
 						December 1, 2016
 					</div>
 					<div class="content-editorial padding-top-five">
-						<?php echo substr($gae->DESCRIPTION, 0,500)."... "; ?><a href="<?php echo base_url(); ?>editorial/post/<?php echo $gae->HASHEDITORIAL; ?>">see more</a>
+						<?php echo substr($gae->DESCRIPTION, 0,500)."... "; ?><a href="<?php echo base_url(); ?>editorial/post/<?php echo $gae->NO; ?>">see more</a>
 					</div>
 				</div>
 			</div>

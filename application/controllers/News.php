@@ -13,15 +13,16 @@ class News extends CI_Controller {
 
 	public function index()
 	{
-        if (empty($this->session->userdata('session_data'))) {
+        if (empty($this->session->userdata('user_session')) || $this->session->userdata('user_session')->POSITION == "User") {
             $details = array (
-                'get_latest_new'            =>      $this->News_model->get_latest_new()
+                'get_latest_new'            =>      $this->News_model->get_latest_new(),
+                'get_all_news'              =>      $this->News_model->get_all_news()
             );
             $data['content']    =   $this->load->view('user/news', $details, TRUE);
             $data['curpage'] = $this->curpage;
             $this->load->view('content', $data);
         } else {
-            redirect('/');
+            redirect('/admin');
         }
 	}
 }

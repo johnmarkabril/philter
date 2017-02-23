@@ -13,7 +13,7 @@ class Aboutus extends CI_Controller {
 
 	public function index()
 	{
-		if (empty($this->session->userdata('session_data'))) {
+		if (empty($this->session->userdata('user_session')) || $this->session->userdata('user_session')->POSITION == "User") {
 			$details = array (
 				'get_latest_new'			=>		$this->News_model->get_latest_new()
 			);
@@ -21,7 +21,7 @@ class Aboutus extends CI_Controller {
 			$data['curpage'] = $this->curpage;
 			$this->load->view('content', $data);
 		} else {
-			redirect('/');
+			redirect('/admin');
 		}
 	}
 }

@@ -4,27 +4,29 @@
 	</div>
 </div>
 
-<?php 
-	if ( !empty($get_latest_new) ) {
-		foreach( $get_latest_new as $gln ) :
-?>
+<div style="height: 100%;">
+	<?php 
+		if ( !empty($get_latest_new) ) {
+			foreach( $get_latest_new as $gln ) :
+	?>
 
-			<div class="padding-top">
-				<a>
-					<div class="ibox-content product-box">
-						<div class="product-imitation no-padding">
-							<img class="img-responsive full-width height-img-home" src="<?php echo base_url(); ?>public/img/<?php echo $gln->IMAGEURL; ?>" />
-					    </div>
-					   	<div class="product-desc padding-all">
-					   		<label class="text-center color-sdfgsdf">
-					   			<?php echo $gln->TITLE; ?>
-					   		</label>
-					   	</div>
-					</div>
-				</a>
-			</div>
+				<div class="padding-top">
+					<a>
+						<div class="ibox-content product-box">
+							<!-- <div class="product-imitation no-padding">
+								<img class="img-responsive full-width height-img-home" src="<?php echo base_url(); ?>public/img/<?php echo $gln->IMAGEURL; ?>" />
+						    </div> -->
+						   	<div class="product-desc padding-all">
+						   		<label class="text-center color-sdfgsdf">
+						   			<?php echo $gln->TITLE; ?>
+						   		</label>
+						   	</div>
+						</div>
+					</a>
+				</div>
 
-<?php
-		endforeach;
-	}
-?>
+	<?php
+			endforeach;
+		}
+	?>
+</div>

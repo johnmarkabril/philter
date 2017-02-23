@@ -57,5 +57,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 // $route['admin/compose_message']	= "admin/message/compose_message";
 
-
-$route['student']	= "student/home";
+$route['admin'] = "admin/blog";

@@ -7,19 +7,18 @@ asd
 	</div>
 </div>
 
-<div class="padding-top">
-	<input type="text" class="form-control full-width" placeholder="Search stories ...." />
-</div>
 <div class="row">
 	<?php
-		if ( !empty($get_stories_new) ) {
-			foreach ( $get_stories_new as $gsn ) :
+		if ( !empty($get_latest_blog_three) ) {
+			foreach ( $get_latest_blog_three as $gsn ) :
 	?>
 		<div class="col-md-4 padding-top">
-			<div class="ibox-content" style="height:130px;">
-				<label><?php echo $gsn->TITLE; ?></label>
-				<small><?php echo $gsn->DATE." ".$gsn->HOUR; ?></small>
-			</div>
+			<a href="<?php echo base_url(); ?>blog/post/<?php echo $gsn->NO;?>">
+				<div class="ibox-content no-border" style="height:130px;">
+					<label><a href="<?php echo base_url(); ?>blog/post/<?php echo $gsn->NO;?>"><?php echo $gsn->TITLE; ?></a></label>
+					<div><small><?php echo $gsn->DATE." ".$gsn->HOUR; ?></small></div>
+				</div>
+			</a>
 		</div>
 	<?php
 			endforeach;

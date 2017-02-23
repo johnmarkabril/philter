@@ -4,50 +4,50 @@
 	</div>
 </div>
 
-<div class="padding-top">
-	<div class="ibox-content product-box">
-		<div class="product-imitation no-padding">
-			<div class="embed-responsive embed-responsive-16by9">
-				<iframe src="https://www.youtube.com/embed/jeZyp6vgKQE?"></iframe>
-			</div>
-		</div>
-		<div class="product-desc padding-all" style="height: 60px;">
-		   	<label class="text-center color-sdfgsdf">
-				Duterte vows zero tolerance vs corruption
-		   	</label>
-		</div>
-	</div>
-</div>
-
-<div class="padding-top">
-	<div class="row">
-		<div class="col-md-6">
-			<div class="ibox-content product-box">
-				<div class="product-imitation no-padding">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe src="https://www.youtube.com/embed/BNIvhHRm6WY?"></iframe>
+<div class="row">
+<?php
+	$x = 1; 
+	if ( !empty($get_all_news_videos_limit) ) {
+		foreach( $get_all_news_videos_limit as $galnvl ) :
+			if ( $x == 1 ) {
+				$x++;
+?>
+				<div class="padding-top">
+					<div class="col-md-12">
+						<div class="ibox-content product-box">
+							<div class="product-imitation no-padding">
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe src="<?php echo $galnvl->VIDEOURL; ?>"></iframe>
+								</div>
+							</div>
+							<div class="product-desc padding-all" style="height: 60px;">
+							   	<label class="text-center color-sdfgsdf">
+									<a href="<?php echo base_url(); ?>videos/post/<?php echo $galnvl->NO; ?>"><?php echo $galnvl->TITLE; ?></a>
+							   	</label>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="product-desc padding-all" style="height: 60px;">
-				   	<label class="text-center color-sdfgsdf">
-				   		Duterte slams TPP, backs Trump plan to dump trade deal
-				   	</label>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="ibox-content product-box">
-				<div class="product-imitation no-padding">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe src="https://www.youtube.com/embed/RuoVlPIhVbE?"></iframe>
+		<?php
+			} else {
+		?>
+				<div class="col-md-6 padding-top">
+					<div class="ibox-content product-box">
+						<div class="product-imitation no-padding">
+							<div class="embed-responsive embed-responsive-16by9">
+								<iframe src="<?php echo $galnvl->VIDEOURL; ?>"></iframe>
+							</div>
+						</div>
+						<div class="product-desc padding-all" style="height: 60px;">
+						   	<label class="text-center color-sdfgsdf">
+								<a href="<?php echo base_url(); ?>videos/post/<?php echo $galnvl->NO; ?>"><?php echo $galnvl->TITLE; ?></a>
+						   	</label>
+						</div>
 					</div>
 				</div>
-				<div class="product-desc padding-all" style="height: 60px;">
-				   	<label class="text-center color-sdfgsdf">
-				   		Duterte thrills, serenades Filipinos in Cambodia
-				   	</label>
-				</div>
-			</div>
-		</div>
-	</div>
+<?php
+			}
+		endforeach;
+	}
+?>
 </div>

@@ -5,27 +5,64 @@ if (!defined('BASEPATH'))
 
 class Users_model extends CI_Model
 {
-	public $table 			=	"online_user";
-	public $idnum 			=	"IDNO";
+	public $table 			=	"user";
+	public $email 			=	"EMAILADDRESS";
 	public $password		=	"PASSWORD";
-	public $status			=	"STATUS";
+	public $deletion		=	"DELETION";
+	public $dbno			=	"NO";
 
 	function __construct()
 	{
 		parent::__construct();
 	}
 
-	function check_idnum_pass($c_idnum, $c_password){
-		$row = 	$this->db->where($this->idnum, $c_idnum)
-				 		 ->where($this->password, md5($c_password))
-				 		 ->where($this->status, 'Registered')
+	function check_email_pass($email, $password){
+		$row = 	$this->db->where($this->email, $email)
+				 		 ->where($this->password, $password)
+				 		 ->where($this->deletion, '0')
 				  		 ->limit(1)
 				 		 ->get($this->table);
 
-		if($row->num_rows() > 0){
-			return $row->row();
-		}else{
-			return false;
-		}
+		return $row->row();
+	}
+
+	function get_all_user()
+	{
+		$row = $this->db->where($this->deletion, "0")
+						->order_by($this->dbno, "DESC")
+						->get($this->table);
+
+				return $row->result();
+	}
+
+	function insert($params)
+	{
+        $this->db->insert($this->table, $params);
+	}
+	
+	function update($params, $no)
+	{
+        $this->db->where($this->dbno, $no);	
+        $this->db->update($this->table, $params); 
+   	}
+
+	function get_latest_user_specific()
+	{
+		$row = $this->db->where($this->deletion, "0")
+						->order_by($this->dbno, "DESC")
+						->limit(1)
+						->get($this->table);
+
+				return $row->result();
+	}
+
+	function get_specific_user($no)
+	{
+		$row = $this->db->where($this->deletion, "0")
+						->where($this->dbno, $no)
+						->limit(1)
+						->get($this->table);
+
+				return $row->result();
 	}
 }
